@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
-import Shelf from "../Shelf/Shelf.js";
-import Book from "../Book/Book.js";
 import { Link } from 'react-router-dom';
+// API
+import * as BooksAPI from '../../BooksAPI';
 
-class Home extends Component {
+import Shelf from "../Shelf/Shelf.js";
+import book from "../Book/Book.js";
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      books: []
+    }
+  }
+
+  componentDidMount(){
+    BooksAPI.getAll()
+    .then(resp => {
+      console.log(resp);
+      this.setState({books: resp});
+    });
+  }
+
     render() {
       return (
             <div className="list-books">
