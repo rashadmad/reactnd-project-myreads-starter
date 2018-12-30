@@ -4,6 +4,7 @@ import * as BooksAPI from '../../BooksAPI';
 import { Link } from 'react-router-dom';
 
 class Search extends React.Component {
+  /* creates the state for books and results */
    constructor(props) {
       super(props);
       this.state = {
@@ -12,23 +13,24 @@ class Search extends React.Component {
          query: ""
       }
    }
-
+   /* adds book data to books array and to the state */
    componentDidMount() {
       BooksAPI.getAll()
       .then(resp => {
          this.setState({books:resp});
       })
    }
-
+   /* adds book data to books and the state */
    updateQuery = (query) => {
       this.setState({query: query}, this.submitSearch);
    }
-
+   /* adds book data to books and the state */
    submitSearch() {
       if(this.state.query === '' || this.state.query === undefined) {
          return this.setState({ results: [] })
       }
       BooksAPI.search(this.state.query.trim()).then(res => {
+        {/* error handleing */}
          if(res.error) {
             return this.setState({results: [] })
          }

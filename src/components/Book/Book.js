@@ -15,10 +15,12 @@ class Book extends Component {
           <div className="book-cover" style={{
               width: 128,
               height: 193,
+              /* error handleing for cover image */
               backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : "http://via.placeholder.com/128x193?text=No%20Cover"}")`
             }}>
           </div>
           <div className="book-shelf-changer">
+            {/* default value of none, updateBook(book, shelf) this function takes in the value that the users selects */}
             <select value={this.props.book.shelf || "None"} onChange={(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
               <option value="move" disabled="disabled">Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
