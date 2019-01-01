@@ -4,6 +4,9 @@ import Book from "../Book/Book.js";
 // API
 import * as BooksAPI from '../../BooksAPI';
 
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
+
 class SearchPage extends React.Component {
   /* creates the state for books and results */
    constructor(props) {
