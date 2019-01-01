@@ -21,7 +21,7 @@ class Book extends Component {
           </div>
           <div className="book-shelf-changer">
             {/* default value of none, updateBook(book, shelf) this function takes in the value that the users selects */}
-            <select value={this.props.book.shelf || "None"} onChange={(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
+            <select value={this.props.book.shelf || "None"} onChange={(choice) => {this.props.updateBook(this.props.book, choice.target.value) }}>
               <option value="move" disabled="disabled">Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

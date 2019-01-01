@@ -6,7 +6,7 @@ import * as BooksAPI from '../../BooksAPI';
 import Shelf from "../Shelf/Shelf.js";
 import Book from "../Book/Book.js";
 
-class Home extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,6 +25,7 @@ class Home extends Component {
     BooksAPI.update(book, shelf)
     .then(resp => {
       book.shelf = shelf;
+      console.log(shelf);
       this.setState(state => ({
         books: state.books.filter(b => b.id !== book.id).concat([book])
       }));
@@ -45,4 +46,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomePage;

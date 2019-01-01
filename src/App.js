@@ -3,8 +3,8 @@ import './App.css'
 
 // import pages
 import { Route } from 'react-router-dom'
-import Home from "./components/pages/Home.js";
-import Search from "./components/pages/Search.js";
+import HomePage from "./components/pages/HomePage.js";
+import SearchPage from "./components/pages/SearchPage.js";
 // import components
 import Book from "./components/Book/Book.js";
 import Shelf from "./components/Shelf/Shelf.js";
@@ -15,8 +15,8 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div>
-        <Route exact path="/" component={ Home } />
-        <Route exact path="/search" component={ Search } />
+        <Route exact path="/" component={ HomePage } />
+        <Route exact path="/search" component={ SearchPage } />
       </div>
     );
   }

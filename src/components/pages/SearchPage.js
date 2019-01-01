@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import Book from '../Book/Book.js';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import Book from "../Book/Book.js";
+// API
 import * as BooksAPI from '../../BooksAPI';
-import { Link } from 'react-router-dom';
 
-class Search extends React.Component {
+class SearchPage extends React.Component {
   /* creates the state for books and results */
    constructor(props) {
       super(props);
       this.state = {
          books: [],
+         bookTitles: [],
          results: [],
          query: ""
       }
@@ -20,7 +22,7 @@ class Search extends React.Component {
          this.setState({books:resp});
       })
    }
-   /* adds book data to books and the state */
+   /* Search field  */
    updateQuery = (query) => {
       this.setState({query: query}, this.submitSearch);
    }
@@ -33,26 +35,24 @@ class Search extends React.Component {
         {/* error handleing */}
          if(res.error) {
             return this.setState({results: [] })
-         }
-         else {
+         } else {
             res.forEach(b => {
-               let f = this.state.books.filter(B => B.id === b.id)
-               if(f[0]) { b.shelf = f[0].shelf }
+               let filteredBookTitles = this.state.bookTitles.filter(B => B.title === b.title)
+               if(filteredBookTitles[0]) { b.shelf = filteredBookTitles[0].shelf }
             });
             return this.setState({results: res })
          }
       })
    }
-
-   bookUpdater = (book, shelf) => {
-      BooksAPI.update(book, shelf)
-      .then(resp => {
-         book.shelf = shelf;
-         this.setState(state => ({
-            books: state.books.filter(b => b.id !== book.id).concat({book})
-         }))
-      })
-    }
+   updateBook = (book, shelf) => {
+     BooksAPI.update(book, shelf)
+     .then(resp => {
+       book.shelf = shelf;
+       this.setState(state => ({
+         books: state.books.filter(b => b.id !== book.id).concat({book})
+       }));
+     });
+   }
 
     render() {
         return (
@@ -60,8 +60,7 @@ class Search extends React.Component {
             <div className="search-books-bar">
               <Link className="close-search" to="/">Close</Link>
               <div className="search-books-input-wrapper">
-                <input type="text" placeholder="Search by title or author" value={this.state.query}
-                  onChange={(event) => this.updateQuery(event.target.value)} />
+                <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={(event) => this.updateQuery(event.target.value)} />
               </div>
             </div>
             <div className="search-books-results">
@@ -76,4 +75,4 @@ class Search extends React.Component {
     }
 }
 
-export default Search;
+export default SearchPage;
