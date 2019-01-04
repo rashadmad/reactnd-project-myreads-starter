@@ -21,10 +21,12 @@ class Searchpage extends React.Component {
      }
 
      updateQuery = (query) => {
+       /* Multi line comment*/
         this.setState({query: query}, this.submitSearch);
      }
 
      submitSearch() {
+        /* Multi line comment*/
         if(this.state.query === '' || this.state.query === undefined) {
            return this.setState({ results: [] })
         }

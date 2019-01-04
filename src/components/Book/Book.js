@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 //api
-import * as BooksAPI from '../../BooksAPI';
+
 
 class Book extends Component {
   componentDidMount() {

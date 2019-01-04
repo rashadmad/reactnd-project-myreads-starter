@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import * as BooksAPI from '../../BooksAPI';
 
 import Shelf from "../Shelf/Shelf.js";
-import Book from "../Book/Book.js";
 
 class HomePage extends Component {
   constructor(props) {

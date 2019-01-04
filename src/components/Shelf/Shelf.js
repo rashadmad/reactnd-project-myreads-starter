@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Book from '../Book/Book.js';
-import * as BooksAPI from '../../BooksAPI';
 
 class Shelf extends React.Component {
 
