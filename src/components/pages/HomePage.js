@@ -16,7 +16,6 @@ class HomePage extends Component {
 
   componentDidMount() {
     BooksAPI.getAll().then(resp => {
-      console.log(resp);
       this.setState({books: resp});
     });
   }
@@ -25,7 +24,6 @@ class HomePage extends Component {
     BooksAPI.update(book, shelf)
     .then(resp => {
       book.shelf = shelf;
-      console.log(shelf);
       this.setState(state => ({
         books: state.books.filter(b => b.id !== book.id).concat([book])
       }));
