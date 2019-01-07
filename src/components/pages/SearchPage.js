@@ -35,24 +35,30 @@ class Searchpage extends React.Component {
               return this.setState({results: [] })
            }
            else {
-              res.forEach(b => {
-                 let f = this.state.books.filter(B => B.id === b.id)
-                 if(f[0]) { b.shelf = f[0].shelf }
-              });
-              return this.setState({results: res })
+             
+              let filteredResults = res.filter(book => {
+                let notShelved = true;
+                this.state.books.forEach(shelvedBook => {
+                  if (book.id === shelvedBook.id) {
+                    notShelved = false;
+                  }
+                });
+                return notShelved;
+              })
+              return this.setState({results: filteredResults})
            }
         })
      }
 
-     bookUpdater = (book, shelf) => {
-        BooksAPI.update(book, shelf)
-        .then(resp => {
-           book.shelf = shelf;
-           this.setState(state => ({
-              books: state.books.filter(b => b.id !== book.id).concat({book})
-           }))
-        })
-      }
+     updateBook = (book, shelf) => {
+       BooksAPI.update(book, shelf)
+       .then(resp => {
+         book.shelf = shelf;
+         this.setState(state => ({
+           books: state.books.filter(b => b.id !== book.id).concat([book])
+         }));
+       });
+     }
 
     render() {
        return (
@@ -67,7 +73,7 @@ class Searchpage extends React.Component {
              <div className="search-books-results">
                <ol className="books-grid">
                {
-                  this.state.results.map((book, key) => <Book bookUpdater={this.bookUpdater} book={book} key={key} />)
+                  this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
                }
                </ol>
              </div>
