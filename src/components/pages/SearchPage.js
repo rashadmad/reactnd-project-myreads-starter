@@ -14,6 +14,7 @@ class Searchpage extends React.Component {
      }
 
      componentDidMount() {
+       /* Gather data from api */
         BooksAPI.getAll()
         .then(resp => {
            this.setState({books:resp});
@@ -21,12 +22,12 @@ class Searchpage extends React.Component {
      }
 
      updateQuery = (query) => {
-       /* Multi line comment*/
+       /* Input field updates from user input */
         this.setState({query: query}, this.submitSearch);
      }
 
+     /* search through data filter results according to query dont show books that are on shelves */
      submitSearch() {
-        /* Multi line comment*/
         if(this.state.query === '' || this.state.query === undefined) {
            return this.setState({ results: [] })
         }
@@ -35,7 +36,7 @@ class Searchpage extends React.Component {
               return this.setState({results: [] })
            }
            else {
-             
+
               let filteredResults = res.filter(book => {
                 let notShelved = true;
                 this.state.books.forEach(shelvedBook => {
@@ -49,7 +50,7 @@ class Searchpage extends React.Component {
            }
         })
      }
-
+/* Allows users to make changes to a books postion(i.e. shelves) */
      updateBook = (book, shelf) => {
        BooksAPI.update(book, shelf)
        .then(resp => {
