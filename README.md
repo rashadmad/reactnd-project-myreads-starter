@@ -1,6 +1,15 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is my first project with react I made it for the Udacity's React Fundamentals course. The goal of this project was to get my feet wet with react. The CSS and HTML markup was provided for me, but the project started off with out any React code. My job was to add interactivity to the app by refactoring the static code and allowing for dynamic content.
+
+# What I learned
+
+Well I had a bit of a hard time with this project. I have learned a bit about trouble shooting. Dealing with api for the last few projects has really gotten me more comfortable with using data. I still have a ways to go before I can say I am comfortable with using them but I respect there power.
+## Working with React
+I rather enjoy functional programing and using components it is a fresh departure from objects. The idea that you have multiple
+components inheriting from each other feels very efficient. If a component were to fail, one can simply correct that component from within or test the methods and props being passed down to said component. Also react seems very ready to go, all you have to type is npm start and your app is up and running and refreshing automatically.  
+
+# Would you like to give this a try
 
 Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
