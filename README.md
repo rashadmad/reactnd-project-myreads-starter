@@ -1,13 +1,12 @@
 # MyReads Project
 
-This is my first project with react I made it for the Udacity's React Fundamentals course. The goal of this project was to get my feet wet with react. The CSS and HTML markup was provided for me, but the project started off with out any React code. My job was to add interactivity to the app by refactoring the static code and allowing for dynamic content.
+This is my first project with react I made it for the Udacity's React Fundamentals course. The goal of this project was to get my feet wet with react. The CSS and HTML markup was provided for me, but the project had no React code. My job was to add interactivity to the app by refactoring the static code and allowing for dynamic content.
 
 # What I learned
 
-Well I had a bit of a hard time with this project. I have learned a bit about trouble shooting. Dealing with api for the last few projects has really gotten me more comfortable with using data. I still have a ways to go before I can say I am comfortable with using them but I respect there power.
+Well I had a bit of a hard time with this project. I have learned a bit about trouble shooting. Dealing with api for the last few projects has really gotten me more comfortable with using data. I still have a ways to go before I can say I am comfortable with using them but I respect there power. I have learned that it is quite important to read through the readme and any documentation of a project such as this one so I can plan accordingly.
 ## Working with React
-I rather enjoy functional programing and using components it is a fresh departure from objects. The idea that you have multiple
-components inheriting from each other feels very efficient. If a component were to fail, one can simply correct that component from within or test the methods and props being passed down to said component. Also react seems very ready to go, all you have to type is npm start and your app is up and running and refreshing automatically.  
+I rather enjoy functional programing and using components it is a fresh departure from objects. The idea that you have multiple components inheriting from each other feels very efficient. If a component were to fail, one can simply correct that component from within or test the methods and props being passed down to said component. Also react seems very ready to go, all you have to type is npm start and your app is up and running and refreshing automatically. also REACT Create is awesome!  
 
 # Would you like to give this a try
 
